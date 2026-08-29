@@ -3,6 +3,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LeaveRequestController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SalaryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,8 @@ Route::apiResource('leave-requests', LeaveRequestController::class);
 Route::get('/attendances', [AttendanceController::class, 'index']);
 Route::post('/attendances/check-in', [AttendanceController::class, 'checkIn']);
 Route::post('/attendances/check-out', [AttendanceController::class, 'checkOut']);
+
+Route::get('/salaries', [SalaryController::class, 'index']);
+Route::post('/salaries', [SalaryController::class, 'store']);
+Route::put('/salaries/{salary}', [SalaryController::class, 'update']);
+Route::delete('/salaries/{salary}', [SalaryController::class, 'destroy']);
